@@ -48,6 +48,6 @@ Deployed Version: [Digital Spanish Journal](http://digital-spanish-journal-env.e
 
 ## Author
 - Michael Black [wmblack23]
-- 
+- [Linked In](https://www.linkedin.com/in/wmichaelblack/)
 
 
