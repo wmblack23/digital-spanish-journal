@@ -12,8 +12,10 @@
 ![App Screenshot-2](static/images/view-blog.png)
 ![App Screenshot-3](static/images/expanded-blog.png)
 
-<!-- Link to Deployed Version -->
-<!-- Deployed Version: [Digital Spanish Journal](http://digital-spanish-journal-env.eba-rezgy8bx.us-east-1.elasticbeanstalk.com/) -->
+---
+
+## Link to Deployed Version -->
+Deployed Version: [Digital Spanish Journal](http://digital-spanish-journal-env.eba-rezgy8bx.us-east-1.elasticbeanstalk.com/) -->
 
 ---
 
