@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Spanish Journal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Create an Account</h1>
+        <form method="POST" class="signup-form" autocomplete="off">
+          <input type="text" name="first_name" placeholder="First Name" autocomplete="off" required>
+          <input type="text" name="last_name" placeholder="Last Name" autocomplete="off" required>
+          <input type="text" name="email" placeholder="Email" autocomplete="off" required/>
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Log in here</a>.</p>
+    </main>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div id="flash-message" style="display: none;">
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <script src="{{ url_for('static', filename='js/flash_messages.js') }}"></script>
+</body>
+</html>

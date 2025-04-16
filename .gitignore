@@ -1,0 +1,10 @@
+.env
+Procfile
+*.zip
+*.pyc
+__pycache__/
+venv/
+.DS_Store
+my_env/venv/
+venv/
+read_me_photos/
