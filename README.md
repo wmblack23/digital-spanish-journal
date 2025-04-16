@@ -15,7 +15,7 @@
 ---
 
 ## Link to Deployed Version -->
-Deployed Version: [Digital Spanish Journal](http://digital-spanish-journal-env.eba-rezgy8bx.us-east-1.elasticbeanstalk.com/) -->
+Deployed Version: [Digital Spanish Journal](http://digital-spanish-journal-env.eba-rezgy8bx.us-east-1.elasticbeanstalk.com/)
 
 ---
 
