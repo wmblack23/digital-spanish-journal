@@ -10,7 +10,6 @@
 ## Demo
 
 ![App Screenshot-1](static/images/post-blog.png)
-![App Screenshot-2](static/images/view-blog.png)
 ![App Screenshot-3](static/images/expanded-blog.png)
 
 ---
