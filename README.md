@@ -6,9 +6,9 @@ It's purpose is for **language learning**. The user submits a journal entry in S
 
 ## Demo
 
-![App Screenshot-1](read_me_photos/post-blog.png)
-![App Screenshot-2](read_me_photos/view-blog.png)
-![App Screenshot-3](read_me_photos/expanded-blog.png)
+![App Screenshot-1](static/images/post-blog.png)
+![App Screenshot-2](static/images/view-blog.png)
+![App Screenshot-3](static/images/expanded-blog.png)
 
 <!-- Link to Deployed Version -->
 <!-- Deployed Version: [Digital Spanish Journal](http://digital-spanish-journal-env.eba-rezgy8bx.us-east-1.elasticbeanstalk.com/) -->
