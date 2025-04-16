@@ -3,6 +3,7 @@
 - This is a simple full-stack web application built with **Flask** (Python), **MongoDB Atlas**, and **HTML/CSS/JavaScript** on the frontend.
 - It's purpose is for **language learning**. The user submits a journal entry in Spanish and a Chat GPT AOPI connection on the backend returns a corrected version.
 - This tool is designed to improve the Spanish language learning process through writing and keeping all of a users' entries in an easy to use location.
+- Users can effortlessly scroll through weeks or months of their Spanish blogs and track their progress along the way.
 ---
 
 ## Demo
