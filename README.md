@@ -1,7 +1,8 @@
 # Flask + MongoDB Atlas Web App
 
-This is a simple full-stack web application built with **Flask** (Python), **MongoDB Atlas**, and **HTML/CSS/JavaScript** on the frontend. 
-It's purpose is for **language learning**. The user submits a journal entry in Spanish and a Chat GPT AOPI connection on the backend returns a corrected version. This tool is designed to improve the Spanish language learning process through writing and keeping all of a users' entries in an easy to use location.
+- This is a simple full-stack web application built with **Flask** (Python), **MongoDB Atlas**, and **HTML/CSS/JavaScript** on the frontend.
+- It's purpose is for **language learning**. The user submits a journal entry in Spanish and a Chat GPT AOPI connection on the backend returns a corrected version.
+- This tool is designed to improve the Spanish language learning process through writing and keeping all of a users' entries in an easy to use location.
 ---
 
 ## Demo
