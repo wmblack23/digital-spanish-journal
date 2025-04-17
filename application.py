@@ -10,13 +10,13 @@ import os
 
 load_dotenv()
 
-app = Flask(__name__)
-CORS(app)
+application = Flask(__name__)
+CORS(application)
 
 env = os.getenv("ENV", "dev")
 clusterUrl = os.environ["clusterUrl"]
 client = MongoClient(clusterUrl)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+application.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 if env == "prod":
     db = client["spanish-diary-prod"]
@@ -26,7 +26,7 @@ else:
 entries = db["entries"]
 users = db['users']
 
-@app.route("/signup", methods=["GET", "POST"])
+@application.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
         # Post signup info to MongoDB 'users' collection
@@ -48,7 +48,7 @@ def signup():
         return redirect(url_for("index"))
     return render_template("signup.html")
 
-@app.route("/login", methods=["GET", "POST"])
+@application.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         # Grab username and password from matching MongoDB document
@@ -67,7 +67,7 @@ def login():
 
     return render_template("login.html")
 
-@app.route("/", methods=["GET", "POST"])
+@application.route("/", methods=["GET", "POST"])
 def index():
     if "email" not in session:
         return redirect(url_for("login"))
@@ -107,10 +107,10 @@ def index():
     response.headers["Expires"] = "0"
     return response
 
-@app.route("/logout")
+@application.route("/logout")
 def logout():
     session.pop("email", None)
     return redirect(url_for("login"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
