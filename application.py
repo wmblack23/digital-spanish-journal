@@ -112,5 +112,9 @@ def logout():
     session.pop("email", None)
     return redirect(url_for("login"))
 
+@application.route("/health")
+def health_check():
+    return "OK", 200
+
 if __name__ == "__main__":
     application.run(debug=True)
