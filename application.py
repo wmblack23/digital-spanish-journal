@@ -107,6 +107,15 @@ def index():
     response.headers["Expires"] = "0"
     return response
 
+@application.route("/delete_blog", methods=["POST"])
+def delete_blog():
+    timestamp = request.form.get("timestamp")
+    email = request.form.get("email")
+    if timestamp and email:
+        entries.delete_one({"timestamp": timestamp, "email": email})
+    return redirect(url_for("index"))  # or wherever your homepage is
+
+
 @application.route("/logout")
 def logout():
     session.pop("email", None)

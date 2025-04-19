@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Spanish por Writing</title>
+    <title>Learn Spanish con Writing</title>
     <form action="{{ url_for('logout') }}" method="get">
         <button type="submit" class="logout-btn">Logout</button>
     </form>
@@ -27,6 +27,11 @@
         <div id="blog-container">
             {% for post in posts %}
                 <div class="blog-card" data-title="{{ post.title }}" data-content="{{ post.body }}" data-body="{{ post.corrected_body }}">
+                    <form action="{{ url_for('delete_blog') }}" method="POST" style="display: inline;">
+                        <input type="hidden" name="timestamp" value="{{ post['timestamp'] }}">
+                        <input type="hidden" name="email" value="{{ post['email'] }}">
+                        <button class="delete-btn" title="Delete" onclick="event.stopPropagation()">&#128465;</button>
+                    </form>
                     <h2>{{ post.title }}</h2>
                     <h8>{{ post.timestamp }}</h8>
                     <h4>{{ post.body.split()[:3] | join(' ') }} . . .</h4>
