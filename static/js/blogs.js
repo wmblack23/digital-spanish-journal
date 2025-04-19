@@ -11,10 +11,10 @@ function renderBlogs() {
 
     // Toggle arrow visibility
     document.getElementById("arrow-left").style.display = currentIndex > 0 ? "block" : "none";
-    document.getElementById("arrow").style.display = currentIndex + blogsPerPage < blogCards.length ? "block" : "none";
+    document.getElementById("arrow-right").style.display = currentIndex + blogsPerPage < blogCards.length ? "block" : "none";
 }
 
-document.getElementById("arrow").onclick = () => {
+document.getElementById("arrow-right").onclick = () => {
     if (currentIndex + blogsPerPage < blogCards.length) {
         currentIndex += blogsPerPage;
         renderBlogs();

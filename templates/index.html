@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Spanish by Writing</title>
-    <div style="text-align: right;">
-        <form action="{{ url_for('logout') }}" method="get">
+    <title>Learn Spanish por Writing</title>
+    <form action="{{ url_for('logout') }}" method="get">
         <button type="submit" class="logout-btn">Logout</button>
-        </form>
-      </div>
+    </form>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
@@ -37,9 +35,15 @@
                 </div>
             {% endfor %}
         </div>
+        <!-- Right Arrow -->
+        <div id="arrow-right" class="scroll-arrow-container right-arrow">
+            <div class="arrow"></div>
+        </div>
 
-        <div id="arrow">➡️</div>
-        <div id="arrow-left" style="display: none;">⬅️</div>
+        <!-- Left Arrow -->
+        <div id="arrow-left" class="scroll-arrow-container left-arrow" style="display: none;">
+            <div class="arrow"></div>
+        </div>
     </div>  
 
     <div id="expanded-blog">
