@@ -126,7 +126,7 @@ button:hover {
 }
 
 .title-block {
-    min-height: 50px; /* Adjust based on your layout */
+    min-height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -260,6 +260,12 @@ button:hover {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   max-height: 80vh;
+}
+
+#score {
+  font-style: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: #1a2a3b
 }
 
 #close-btn {

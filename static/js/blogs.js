@@ -35,6 +35,7 @@ blogCards.forEach(card => {
         const body = card.dataset.body;
         const corrections = card.dataset.corrections;
         const correctionsArray = corrections.split('\n');
+        const score = card.dataset.score;
         document.getElementById("expanded-title").innerText = title;
         document.getElementById("expanded-content").innerText = content;
         document.getElementById("corrected-body").innerText = body;
@@ -42,6 +43,7 @@ blogCards.forEach(card => {
         .map(item => `<li>${item.trim()}</li>`)
         .join('');
         document.getElementById("corrected-title").innerText = title + " - Corrected";
+        document.getElementById("score").innerText = "Score: " + score;
         document.getElementById("expanded-blog").style.display = "block";
         document.getElementById("main-content").classList.add("blur");
     };

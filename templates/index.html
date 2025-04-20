@@ -28,7 +28,7 @@
 
         <div id="blog-container">
             {% for post in posts %}
-                <div class="blog-card" data-title="{{ post.title }}" data-content="{{ post.body }}" data-body="{{ post.corrected_body }}" data-corrections="{{ post.corrections }}">
+                <div class="blog-card" data-title="{{ post.title }}" data-content="{{ post.body }}" data-body="{{ post.corrected_body }}" data-corrections="{{ post.corrections }}" data-score="{{ post.score }}">
                     <form action="{{ url_for('delete_blog') }}" method="POST" style="display: inline;">
                         <input type="hidden" name="timestamp" value="{{ post['timestamp'] }}">
                         <input type="hidden" name="email" value="{{ post['email'] }}">
@@ -72,6 +72,7 @@
             <p id="corrected-body"></p>
         </div>  
         <ul id="corrections-list"></ul>
+        <h3 id="score"></h3>
     </div>
     <script src="{{ url_for('static', filename='js/blogs.js') }}"></script>
     <script>
