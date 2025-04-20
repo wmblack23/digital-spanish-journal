@@ -26,7 +26,7 @@
 
         <div id="blog-container">
             {% for post in posts %}
-                <div class="blog-card" data-title="{{ post.title }}" data-content="{{ post.body }}" data-body="{{ post.corrected_body }}">
+                <div class="blog-card" data-title="{{ post.title }}" data-content="{{ post.body }}" data-body="{{ post.corrected_body }}" data-corrections="{{ post.corrections }}">
                     <form action="{{ url_for('delete_blog') }}" method="POST" style="display: inline;">
                         <input type="hidden" name="timestamp" value="{{ post['timestamp'] }}">
                         <input type="hidden" name="email" value="{{ post['email'] }}">
@@ -34,9 +34,10 @@
                     </form>
                     <h2>{{ post.title }}</h2>
                     <h8>{{ post.timestamp }}</h8>
-                    <h4>{{ post.body.split()[:3] | join(' ') }} . . .</h4>
                     <hr>
-                    <h2 id="click-for-help">Click for corrected version :)</h2>
+                    <div class="text-bubble">
+                        <p>{{ post.body.split()[:7] | join(' ') }} . . .</p>
+                    </div>  
                 </div>
             {% endfor %}
         </div>
@@ -54,10 +55,15 @@
     <div id="expanded-blog">
         <div id="close-btn">❌</div>
         <h2 id="expanded-title"></h2>
-        <p id="expanded-content"></p>
-        <hr>
-        <h2 id="corrected-title">Corrected Version :)</h2>
-        <p id="expanded-body"></p>
+        <div class="text-bubble">
+            <p id="expanded-content"></p>
+        </div> 
+        <hr id="expanded-line">
+        <h2 id="corrected-title"></h2>
+        <div class="text-bubble">
+            <p id="corrected-body"></p>
+        </div>  
+        <ul id="corrections-list"></ul>
     </div>
     <script src="{{ url_for('static', filename='js/blogs.js') }}"></script>
     <script>

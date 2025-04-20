@@ -33,9 +33,15 @@ blogCards.forEach(card => {
         const title = card.dataset.title;
         const content = card.dataset.content;
         const body = card.dataset.body;
+        const corrections = card.dataset.corrections;
+        const correctionsArray = corrections.split('\n');
         document.getElementById("expanded-title").innerText = title;
         document.getElementById("expanded-content").innerText = content;
-        document.getElementById("expanded-body").innerText = body;
+        document.getElementById("corrected-body").innerText = body;
+        document.getElementById("corrections-list").innerHTML = correctionsArray
+        .map(item => `<li>${item.trim()}</li>`)
+        .join('');
+        document.getElementById("corrected-title").innerText = title + " - Corrected";
         document.getElementById("expanded-blog").style.display = "block";
         document.getElementById("main-content").classList.add("blur");
     };
