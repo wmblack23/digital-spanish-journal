@@ -38,8 +38,7 @@
                     <h8>{{ post.timestamp }}</h8>
                     <hr>
                     <div class="text-bubble">
-                        <p>{{ post.body.split()[:10] | join(' ') }}<br>. . .
-                        </p>
+                        <p>{{ post.body.split()[:10] | join(' ') }} <h4 class="read-more" style="display: inline;">Read More</h4></p>
                     </div>  
                 </div>
             {% endfor %}

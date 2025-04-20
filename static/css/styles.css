@@ -145,6 +145,12 @@ button:hover {
     font-family: 'Source Sans Pro', sans-serif;
   }
 
+.read-more {
+    color: #4d6fa9; /* Change to your preferred color */
+    font-weight: bold;
+    text-decoration: none;
+  }
+
 .text-bubble {
     display: inline-block;
     background: #e0e7ef;
