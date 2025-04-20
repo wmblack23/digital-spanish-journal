@@ -75,12 +75,14 @@ def index():
     if request.method == "POST":
         # Send journal title and journal body to the 'entries' collection
         title = request.form.get("title")
-        body = request.form.get("body")
+        body = request.form.get("body").strip()
         user_timestamp = request.form.get("timestamp")
 
         # Call function from utils.py which sends journal entry to Chat GPT API
         # for fixes and recommendations
         corrected_body = correct_spanish_entry(body)
+        corrections = corrected_body[corrected_body.index('%!()--;kxv')+10:].strip().replace('-', '')
+        corrected_body = corrected_body[:corrected_body.index('%!()--;kxv')].strip()
         
         # Insert the entry with the corrected version
         if title and body:
@@ -88,7 +90,8 @@ def index():
                 "email": session["email"],
                 "title": title,
                 "body": body, 
-                "corrected_body": corrected_body, 
+                "corrected_body": corrected_body,
+                "corrections": corrections,
                 "timestamp": user_timestamp
             })
         
