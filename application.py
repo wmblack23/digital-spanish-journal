@@ -7,6 +7,7 @@ from datetime import datetime
 from utils import correct_spanish_entry
 from dotenv import load_dotenv
 import os
+import random
 
 load_dotenv()
 
@@ -78,14 +79,19 @@ def index():
         body = request.form.get("body").strip()
         user_timestamp = request.form.get("timestamp")
 
+        # Options for message when there are no corrections
+        msg_options = ["There are no corrections - this is good Spanish!",
+                       "Nice! I've got nothing to add here. Good work!",
+                       "Woohoo! Good Spanish writing - hay no corrections from me."]
+        
         # Call function from utils.py which sends journal entry to Chat GPT API
         # for fixes and recommendations
-        corrected_body = correct_spanish_entry(body)
-        corrections = corrected_body[corrected_body.index('%!()--;kxv')+10:].strip().replace('-', '')
-        corrections = "\n".join(
-            line for line in corrections.splitlines() if line.strip() != "")
-        corrected_body = corrected_body[:corrected_body.index('%!()--;kxv')].strip()
-        print(corrections, corrected_body)
+        api_corrections = correct_spanish_entry(body)
+        corrected_body = api_corrections['corrected_text'].strip()
+        corrections = api_corrections['corrections'].strip()
+        if not corrections.strip():
+            corrections = random.choice(msg_options)
+        score = api_corrections['score'].strip()
         
         # Insert the entry with the corrected version
         if title and body:
@@ -95,7 +101,8 @@ def index():
                 "body": body, 
                 "corrected_body": corrected_body,
                 "corrections": corrections,
-                "timestamp": user_timestamp
+                "timestamp": user_timestamp,
+                "score": score
             })
         
         return redirect(url_for("index"))
