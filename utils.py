@@ -10,7 +10,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def correct_spanish_entry(text):
     response = client.chat.completions.create(
-        model="gpt-4-turbo",
+        model="gpt-4",
         messages=[
             {
                 "role": "system",
