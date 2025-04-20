@@ -82,7 +82,10 @@ def index():
         # for fixes and recommendations
         corrected_body = correct_spanish_entry(body)
         corrections = corrected_body[corrected_body.index('%!()--;kxv')+10:].strip().replace('-', '')
+        corrections = "\n".join(
+            line for line in corrections.splitlines() if line.strip() != "")
         corrected_body = corrected_body[:corrected_body.index('%!()--;kxv')].strip()
+        print(corrections, corrected_body)
         
         # Insert the entry with the corrected version
         if title and body:
