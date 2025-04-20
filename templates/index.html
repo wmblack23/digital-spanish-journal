@@ -33,12 +33,18 @@
                         <input type="hidden" name="timestamp" value="{{ post['timestamp'] }}">
                         <input type="hidden" name="email" value="{{ post['email'] }}">
                         <button class="delete-btn" title="Delete" onclick="event.stopPropagation()">&#128465;</button>
-                    </form>
-                    <h2>{{ post.title }}</h2>
-                    <h8>{{ post.timestamp }}</h8>
+                    <div class="title-block">
+                        </form>
+                        {% if post.title.split() | length > 3 %}
+                            <h2>{{ post.title.split()[:3] | join(' ') }} . . .</h2>
+                        {% else %}
+                            <h2>{{ post.title.split() | join(' ') }}</h2>
+                        {% endif %}
+                        <h8>{{ post.timestamp }}</h8>
+                    </div>
                     <hr>
                     <div class="text-bubble">
-                        <p>{{ post.body.split()[:10] | join(' ') }} <h4 class="read-more" style="display: inline;">Read More</h4></p>
+                        <p>{{ post.body.split()[:10] | join(' ') }} <span class="read-more" style="display: inline;"> | Read More</span></p>
                     </div>  
                 </div>
             {% endfor %}

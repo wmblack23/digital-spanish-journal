@@ -18,7 +18,7 @@ def correct_spanish_entry(text):
                     """You are a Spanish grammar expert. A student wrote a Spanish blog. Follow these steps carefully:
 
                     1. Correct the blog and output only the revised version.
-                    2. Write '%!()--;kxv' to separate sections.
+                    2. Write '%!()--;kxv' to separate sections. No matter what always include this
                     3. List each correction with a short explanation in English. Start each with a dash '-'.
                     5. Give the original entry a score out of 10 with no additional explanation."""
                 )

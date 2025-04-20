@@ -117,16 +117,27 @@ button:hover {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease;
-    display: block; 
+    display: flex;
+    flex-direction: column; 
     word-wrap: break-word; /* Break long words that might overflow */
     overflow-wrap: break-word; /* Same as word-wrap, but newer */
     white-space: normal;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
+.title-block {
+    min-height: 50px; /* Adjust based on your layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+
 .blog-card h2 {
     font-size: 1.4rem;
-    margin: 12px;
+    margin: 0 15px 5px 0; /* Top margin set to 0 */
+    padding-right: 7px;
+    margin-right: 15px;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
   }
@@ -135,7 +146,7 @@ button:hover {
     font-size: 0.8rem;
     color: #888;
     display: block;
-    margin: 8px;
+    margin: 0;
   }
 
 .blog-card p {
@@ -154,12 +165,12 @@ button:hover {
 .text-bubble {
     display: inline-block;
     background: #e0e7ef;
-    padding: 10px 15px;
+    padding: 15px 10px;
     border-radius: 20px;
     position: relative;
     font-size: 14px;
-    max-width: 90%;
     margin: 15px;
+    width: 80%;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     word-wrap: break-word;
     white-space: normal;
