@@ -8,6 +8,8 @@
         <button type="submit" class="logout-btn">Logout</button>
     </form>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="main-content">
@@ -36,7 +38,8 @@
                     <h8>{{ post.timestamp }}</h8>
                     <hr>
                     <div class="text-bubble">
-                        <p>{{ post.body.split()[:7] | join(' ') }} . . .</p>
+                        <p>{{ post.body.split()[:7] | join(' ') }}<br>. . .
+                        </p>
                     </div>  
                 </div>
             {% endfor %}
