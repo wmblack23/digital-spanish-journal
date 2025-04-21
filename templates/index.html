@@ -74,7 +74,18 @@
         <ul id="corrections-list"></ul>
         <h3 id="score"></h3>
     </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div id="flash-message" style="display: none;">
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
     <script src="{{ url_for('static', filename='js/blogs.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/flash_messages.js') }}"></script>
     <script>
         document.getElementById('journal-form-entry').addEventListener('submit', function(event) {
             // Prevent the default form submission temporarily to make sure we set the timestamp

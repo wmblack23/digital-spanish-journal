@@ -4,8 +4,9 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-from utils import correct_spanish_entry
+from utils import correct_spanish_entry, is_spanish
 from dotenv import load_dotenv
+from langdetect import detect
 import os
 import random
 
@@ -79,18 +80,16 @@ def index():
         body = request.form.get("body").strip()
         user_timestamp = request.form.get("timestamp")
 
-        # Options for message when there are no corrections
-        msg_options = ["There are no corrections - this is good Spanish!",
-                       "Nice! I've got nothing to add here. Good work!",
-                       "Woohoo! Good Spanish writing - hay no corrections from me."]
+        # Check for a different language or gibberish
+        if not is_spanish(body):
+            flash("Please write your blog in Spanish :)", 'error')
+            return redirect(url_for("index"))
         
         # Call function from utils.py which sends journal entry to Chat GPT API
         # for fixes and recommendations
         api_corrections = correct_spanish_entry(body)
         corrected_body = api_corrections['corrected_text'].strip()
         corrections = api_corrections['corrections'].strip()
-        if not corrections.strip():
-            corrections = random.choice(msg_options)
         score = api_corrections['score'].strip()
         
         # Insert the entry with the corrected version
