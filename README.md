@@ -2,9 +2,9 @@
 
 - This is a simple full-stack web application built with **Flask** (Python), **MongoDB Atlas**, and **HTML/CSS/JavaScript** on the frontend.
 - It's purpose is for **language learning**. The user submits a journal entry in Spanish and a Chat GPT API connection on the backend returns a corrected version.
-- This tool is designed to improve the Spanish language learning process through writing and keeping all of a users' entries in an easily stored and viewed location.
-- Users can effortlessly scroll through weeks or months of their Spanish blogs and track where they have improved and what they need to continue to study.
-- While additional features will be added and touched up in the future, **simplicity** is the core design concept. It is solely a web application for storing Spanish writing and getting immediate feedback from the Chat GPT API.
+- This tool is designed to **improve the Spanish language learning process through writing** and keeping all of a users' entries in an easily stored and viewed location.
+- Users can **effortlessly scroll through weeks or months of their Spanish blogs** and track where they have improved and what they need to continue to study.
+- While additional features will be added in the future, **simplicity** is the core concept. It is solely a web application for storing Spanish writing and getting immediate feedback from the Chat GPT API.
 ---
 
 ## Demo
@@ -14,8 +14,7 @@
 
 ---
 
-## Link to Deployed Version -->
-Deployed Version: [Digital Spanish Journal](http://digital-spanish-journal-env.eba-rezgy8bx.us-east-1.elasticbeanstalk.com/)
+## Link to Deployed Version --> [Coming Soon]
 
 ---
 
