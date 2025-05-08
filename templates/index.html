@@ -22,6 +22,14 @@
             <input type="text" name="title" placeholder="Journal Title" required>
             <textarea name="body" rows="5" placeholder="Share Your Thoughts" required></textarea>
             <input type="hidden" name="timestamp" id="local-timestamp">
+            <div class="choose-level">
+                <input type="radio" id="beginner" name="prompt_level" value="Beg">
+                <label for="html">Beg</label><br>
+                <input type="radio" id="intermediate" name="prompt_level" value="Int">
+                <label for="css">Int</label><br>
+                <input type="radio" id="advanced" name="prompt_level" value="Adv">
+                <label for="javascript">Adv</label>
+            </div>
             <button type="submit">Save your entry</button>
         </form>
         </main>

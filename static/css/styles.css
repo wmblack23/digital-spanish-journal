@@ -92,6 +92,11 @@ button:hover {
     cursor: pointer;
     font-size: 0.9rem;
   }
+
+.choose-level {
+  display: flex;
+  justify-content: space-evenly;
+}
   
 .logout-btn:hover {
     background-color: #e0e7ef99;
