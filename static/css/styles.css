@@ -23,7 +23,7 @@ body::before {
 .container {
     max-width: 700px;
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 0.25rem 3rem 0.25rem 3rem;
     background: #ffffff;
     border: 1px solid #d1dce6;
     border-radius: 8px;
@@ -66,14 +66,16 @@ textarea {
       font-size: 1rem;
     }
   
-button {
+.submit-btn {
     background-color: #4d6fa9;
+    width: 100%;
     color: #ffffff;
     padding: 10px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
 button:hover {
@@ -93,11 +95,67 @@ button:hover {
     font-size: 0.9rem;
   }
 
-.choose-level {
-  display: flex;
-  justify-content: space-evenly;
+  .prompt-divider {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    color: #555;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+.prompt-divider::before,
+.prompt-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    margin: 15px 0px;
 }
-  
+
+.hidden {
+  display: none;
+}
+
+#promptOptions {
+  display: none; 
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+#promptOptions.show {
+  display: flex;
+}
+
+.radioRow {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.submitPromptWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#generatePromptBtn {
+  background-color: #E0E0E0;
+  color: black;
+  border: 1px solid #B0B0B0; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#generatePromptBtn:hover {
+  background-color: #C0C0C0; 
+  color: #333333;
+}
+
 .logout-btn:hover {
     background-color: #e0e7ef99;
   }
@@ -105,8 +163,9 @@ button:hover {
 #blog-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    gap: 30px;
+    padding-top: 15px;
+    padding-bottom: 10px;
     flex-wrap: wrap;
 }
 
@@ -197,10 +256,12 @@ button:hover {
     position: absolute;
     top: 8px;
     right: 10px;
+    border: none;
 }
 
 .delete-btn:hover {
   background: #d3e0ed;
+  cursor: pointer;
 }
 
 .blog-card:hover {

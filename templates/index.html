@@ -14,24 +14,42 @@
 <body>
     <div id="main-content">
         <main class="container">
-        <h1>
-            Your Digital Spanish Journal
-            <img src="{{ url_for('static', filename='images/spain_flag.png') }}" alt="Spanish Flag" style="width: 30px; height: auto; margin-right: 10px;">
-        </h1>
-        <form method="POST" class="entry-form" id="journal-form-entry">
-            <input type="text" name="title" placeholder="Journal Title" required>
-            <textarea name="body" rows="5" placeholder="Share Your Thoughts" required></textarea>
-            <input type="hidden" name="timestamp" id="local-timestamp">
-            <div class="choose-level">
-                <input type="radio" id="beginner" name="prompt_level" value="Beg">
-                <label for="html">Beg</label><br>
-                <input type="radio" id="intermediate" name="prompt_level" value="Int">
-                <label for="css">Int</label><br>
-                <input type="radio" id="advanced" name="prompt_level" value="Adv">
-                <label for="javascript">Adv</label>
-            </div>
-            <button type="submit">Save your entry</button>
-        </form>
+            <h1>
+                Your Digital Spanish Journal
+                <img src="{{ url_for('static', filename='images/spain_flag.png') }}" alt="Spanish Flag" style="width: 30px; height: auto; margin-right: 10px;">
+            </h1>
+        
+            <form method="POST" class="entry-form" id="journal-form-entry">
+                <input type="text" id="journalTitle" name="title" placeholder="Journal Title" required>
+                <textarea name="body" rows="5" placeholder="Share Your Thoughts" required></textarea>
+                <input type="hidden" name="timestamp" id="local-timestamp">
+                
+                <div id="generatePromptWrapper">
+                    <div id="generatePromptText" class="prompt-divider">Generate Random Prompt?</div>
+        
+                    <div id="promptOptions" class="hidden">
+                        <div class="radioRow">
+                        <div>
+                            <input type="radio" id="beginner" name="prompt" value="beginner">
+                            <label for="beginner">Beginner</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="intermediate" name="prompt" value="intermediate">
+                            <label for="intermediate">Intermediate</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="advanced" name="prompt" value="advanced">
+                            <label for="advanced">Advanced</label>
+                        </div>
+                        </div>
+                    
+                        <div class="submitPromptWrapper">
+                            <button type="button" id="generatePromptBtn">Generate Prompt</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Save your entry</button>
+            </form>
         </main>
 
         <div id="blog-container">
@@ -52,7 +70,7 @@
                     </div>
                     <hr>
                     <div class="text-bubble">
-                        <p>{{ post.body.split()[:7] | join(' ') }} <span class="read-more" style="display: inline;">       | Read More</span></p>
+                        <p>{{ post.body.split()[:7] | join(' ') }} <span class="read-more" style="display: block;">Read More</span></p>
                     </div>  
                 </div>
             {% endfor %}
@@ -94,6 +112,7 @@
     {% endwith %}
     <script src="{{ url_for('static', filename='js/blogs.js') }}"></script>
     <script src="{{ url_for('static', filename='js/flash_messages.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gen_prompt.js') }}"></script>
     <script>
         document.getElementById('journal-form-entry').addEventListener('submit', function(event) {
             // Prevent the default form submission temporarily to make sure we set the timestamp

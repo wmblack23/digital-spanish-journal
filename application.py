@@ -26,7 +26,8 @@ else:
     db = client["spanish-diary-dev"]
 
 entries = db["entries"]
-users = db['users']
+users = db["prompts"]
+prompts = db["prompts"]
 
 @application.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -118,6 +119,24 @@ def index():
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
     return response
+
+@application.route("/generate_prompt", methods=["POST"])
+def fetch_prompt():
+    if "email" not in session:
+        return redirect(url_for("login"))
+
+    data = request.get_json()
+    level = data.get("level")
+
+    levelPrompts = list(prompts.find({"level": level}, {"_id": 0, "text": 1}))
+
+    if not levelPrompts:
+        return jsonify({"prompt": "No prompts found for that level."})
+
+    # Choose a random prompt
+    random_prompt = random.choice(levelPrompts)["text"]
+
+    return jsonify({"prompt": random_prompt})
 
 @application.route("/delete_blog", methods=["POST"])
 def delete_blog():
