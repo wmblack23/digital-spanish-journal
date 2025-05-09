@@ -285,11 +285,11 @@ button:hover {
 }
 
 .right-arrow {
-  right: 20px;
+  right: 2px;
 }
 
 .left-arrow {
-  left: 20px;
+  left: 2px;
   transform: scaleX(-1); /* Flip the arrow horizontally */
 }
 
